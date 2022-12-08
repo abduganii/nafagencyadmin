@@ -21,7 +21,7 @@ function Home({ lang, setLang }) {
   const [modal, setModal] = useState(false)
 
   useEffect(() => {
-    fetch(process.env.REACT_APP_API_URL + "/services/")
+    fetch("https://nafadmin.onrender.com/services/")
       .then(res => res.json())
       .then(data => lang === 'uz' ? setData(data.data.uz) : setData(data.data.ru))
       .catch((e) => console.log(e))
@@ -30,7 +30,7 @@ function Home({ lang, setLang }) {
   const HandleDelete = (e) => {
     const id = JSON.parse(e.target.dataset.id);
 
-    fetch(process.env.REACT_APP_API_URL + '/deleteService/' + lang, {
+    fetch('https://nafadmin.onrender.com/deleteService/' + lang, {
       method: "Delete",
       body: JSON.stringify({
         id: id
@@ -143,7 +143,7 @@ function Home({ lang, setLang }) {
                       formData.append("name", name.value);
                       formData.append("text", text.value);
 
-                      axios.post(process.env.REACT_APP_API_URL + "/newService/" + lang, formData, {
+                      axios.post("https://nafadmin.onrender.com/newService/" + lang, formData, {
                         headers: {
                           'Content-Type': 'form-data',
                           'Accept': 'application/json',
@@ -233,7 +233,7 @@ function Home({ lang, setLang }) {
                       formData.append("text", text.value);
                       formData.append("id", id);
 
-                      axios.put(process.env.REACT_APP_API_URL + "/updateService/" + lang, formData, {
+                      axios.put("https://nafadmin.onrender.com/updateService/" + lang, formData, {
                         headers: {
                           'Content-Type': 'form-data',
                           'Accept': 'application/json',
@@ -257,7 +257,7 @@ function Home({ lang, setLang }) {
                           }
                         });
 
-                        setEdit(false)
+                      setEdit(false)
                     }
                   }>
 

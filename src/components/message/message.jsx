@@ -17,7 +17,7 @@ function Message({ lang, setLang }) {
 
 
     useEffect(() => {
-        fetch(process.env.REACT_APP_API_URL + "/allMessage/", {
+        fetch("https://nafadmin.onrender.com/allMessage/", {
             method: "GET",
             headers: {
                 token: token
@@ -31,7 +31,7 @@ function Message({ lang, setLang }) {
     const HandleDelete = (e) => {
         const id = JSON.parse(e.target.dataset.id);
 
-        fetch(process.env.REACT_APP_API_URL + '/deleteMessage/', {
+        fetch('https://nafadmin.onrender.com/deleteMessage/', {
             method: "Delete",
             body: JSON.stringify({
                 id: id

@@ -20,7 +20,7 @@ function Partners({ lang, setLang }) {
 
 
     useEffect(() => {
-        fetch(process.env.REACT_APP_API_URL + "/partners/")
+        fetch("https://nafadmin.onrender.com/partners/")
             .then(res => res.json())
             .then(data => setData(data))
             .catch((e) => console.log(e))
@@ -29,7 +29,7 @@ function Partners({ lang, setLang }) {
     const HandleDelete = (e) => {
         const id = JSON.parse(e.target.dataset.id);
 
-        fetch(process.env.REACT_APP_API_URL + '/deletepartners/', {
+        fetch('https://nafadmin.onrender.com/deletepartners/', {
             method: "Delete",
             body: JSON.stringify({
                 id: id
@@ -125,7 +125,7 @@ function Partners({ lang, setLang }) {
                                             }
                                             formData.append("name", name.value);
 
-                                            axios.post(process.env.REACT_APP_API_URL + "/newpartners/", formData, {
+                                            axios.post("https://nafadmin.onrender.com/newpartners/", formData, {
                                                 headers: {
                                                     'Content-Type': 'form-data',
                                                     'Accept': 'application/json',
@@ -187,7 +187,7 @@ function Partners({ lang, setLang }) {
                                 </form>
                             </div>
                         </div>
-                        
+
                         <div className={edit ? "modal" : "modal--close"}>
                             <div className="modal__item">
                                 <form
@@ -203,7 +203,7 @@ function Partners({ lang, setLang }) {
                                             formData.append("name", name.value);
                                             formData.append("id", id);
 
-                                            axios.put(process.env.REACT_APP_API_URL + "/newpartners/", formData, {
+                                            axios.put("https://nafadmin.onrender.com/newpartners/", formData, {
                                                 headers: {
                                                     'Content-Type': 'form-data',
                                                     'Accept': 'application/json',

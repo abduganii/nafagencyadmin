@@ -19,7 +19,7 @@ function Team({ lang, setLang }) {
     const [modal, setModal] = useState(false)
 
     useEffect(() => {
-        fetch(process.env.REACT_APP_API_URL + "/ourTeam/")
+        fetch("https://nafadmin.onrender.com/ourTeam/")
             .then(res => res.json())
             .then(data => lang === 'uz' ? setData(data.data.uz) : setData(data.data.ru))
             .catch((e) => console.log(e))
@@ -28,7 +28,7 @@ function Team({ lang, setLang }) {
     const HandleDelete = (e) => {
         const id = JSON.parse(e.target.dataset.id);
 
-        fetch(process.env.REACT_APP_API_URL + '/deleteTeamMember/' + lang, {
+        fetch('https://nafadmin.onrender.com/deleteTeamMember/' + lang, {
             method: "Delete",
             body: JSON.stringify({
                 id: id
@@ -128,7 +128,7 @@ function Team({ lang, setLang }) {
                                             formData.append("name", name.value);
                                             formData.append("profession", profession.value);
 
-                                            axios.post(process.env.REACT_APP_API_URL + "/newTeamMember/" + lang, formData, {
+                                            axios.post("https://nafadmin.onrender.com/newTeamMember/" + lang, formData, {
                                                 headers: {
                                                     'Content-Type': 'form-data',
                                                     'Accept': 'application/json',
@@ -217,7 +217,7 @@ function Team({ lang, setLang }) {
                                             formData.append("profession", profession.value);
                                             formData.append("id", id);
 
-                                            axios.put(process.env.REACT_APP_API_URL + "/updateTeamMember/" + lang, formData, {
+                                            axios.put("https://nafadmin.onrender.com/updateTeamMember/" + lang, formData, {
                                                 headers: {
                                                     'Content-Type': 'form-data',
                                                     'Accept': 'application/json',

@@ -21,14 +21,14 @@ function Portfolio({ lang, setLang }) {
 
 
     useEffect(() => {
-        fetch(process.env.REACT_APP_API_URL + "/portfolio/")
+        fetch("https://nafadmin.onrender.com/portfolio/")
             .then(res => res.json())
             .then(data => setData(data))
             .catch((e) => console.log(e))
     }, [lang])
 
     useEffect(() => {
-        fetch(process.env.REACT_APP_API_URL + "/portfoliocategories/")
+        fetch("https://nafadmin.onrender.com/portfoliocategories/")
             .then(res => res.json())
             .then(data => setCategories(data))
             .catch((e) => console.log(e))
@@ -37,7 +37,7 @@ function Portfolio({ lang, setLang }) {
     const HandleDelete = (e) => {
         const id = JSON.parse(e.target.dataset.id);
 
-        fetch(process.env.REACT_APP_API_URL + '/deletePortfolio/', {
+        fetch('https://nafadmin.onrender.com/deletePortfolio/', {
             method: "Delete",
             body: JSON.stringify({
                 id: id
@@ -131,7 +131,7 @@ function Portfolio({ lang, setLang }) {
                                             formData.append("link", link.value);
                                             formData.append("categorieId", categorieId.value);
 
-                                            axios.post(process.env.REACT_APP_API_URL + "/newPortfolio/" + lang, formData, {
+                                            axios.post("https://nafadmin.onrender.com/newPortfolio/" + lang, formData, {
                                                 headers: {
                                                     'Content-Type': 'form-data',
                                                     'Accept': 'application/json',
@@ -218,7 +218,7 @@ function Portfolio({ lang, setLang }) {
                                             formData.append("categorieId", categorieId.value);
                                             formData.append("id", id);
 
-                                            axios.put(process.env.REACT_APP_API_URL + "/updatePortfolio/" + lang, formData, {
+                                            axios.put("https://nafadmin.onrender.com/updatePortfolio/" + lang, formData, {
                                                 headers: {
                                                     'Content-Type': 'form-data',
                                                     'Accept': 'application/json',
