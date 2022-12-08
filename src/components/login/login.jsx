@@ -41,6 +41,7 @@ function Login() {
 						required
 						ref={login}
 						type="text"
+						defaultValue={"AliJon"}
 						placeholder="Login"
 						style={
 							status === 404
@@ -53,6 +54,7 @@ function Login() {
 					<input
 						required
 						ref={password}
+						defaultValue={"123ds343rew32"}
 						type="password"
 						placeholder="Parol"
 						style={

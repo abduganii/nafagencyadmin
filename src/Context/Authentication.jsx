@@ -4,14 +4,14 @@ const Context = React.createContext();
 
 function Provider({ children }) {
 	const [state, setState] = React.useState(
-		JSON.parse(window.localStorage.getItem('token')) || false,
+		JSON.parse(window.localStorage.getItem('naftoken')) || false,
 	);
 
 	React.useEffect(() => {
 		if (state) {
-			window.localStorage.setItem('token', JSON.stringify(state));
+			window.localStorage.setItem('naftoken', JSON.stringify(state));
 		} else {
-			window.localStorage.removeItem('token');
+			window.localStorage.removeItem('naftoken');
 		}
 	}, [state]);
 

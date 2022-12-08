@@ -69,7 +69,7 @@ function Header() {
               <li className="nav_list_item">
                 <a
                   className="nav_link"
-                  href="https://naf-agency.netlify.app/">
+                >
                   Go to the site
                 </a>
               </li>
